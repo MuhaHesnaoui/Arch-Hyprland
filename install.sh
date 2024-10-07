@@ -49,7 +49,7 @@ echo " \_| (_| o |\ (_) (_) |_ |  |_ "
 printf "\n%.0s" {1..2}  
 
 # Welcome message
-echo "$(tput setaf 6)Welcome to JaKooLit's Arch-Hyprland Install Script!$(tput sgr0)"
+echo "$(tput setaf 6)Welcome to MU7HA's Arch-Hyprland Install Script!$(tput sgr0)"
 echo
 echo "$(tput setaf 166)ATTENTION: Run a full system update and Reboot first!! (Highly Recommended) $(tput sgr0)"
 echo
@@ -289,4 +289,5 @@ else
     printf "\n${WARN} Hyprland failed to install. Please check 00_CHECK-time_installed.log and other files Install-Logs/ directory...\n\n"
     exit 1
 fi
+
 
