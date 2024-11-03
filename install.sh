@@ -70,7 +70,7 @@ fi
 
 printf "\n%.0s" {1..2}
 
-echo "$(tput bold)$(tput setaf 166)ATTENTION: Choosing Y on use preset question will install also nvidia stuff! $(tput sgr0)"
+#echo "$(tput bold)$(tput setaf 166)ATTENTION: Choosing Y on use preset question will install also nvidia stuff! $(tput sgr0)"
 echo "$(tput bold)$(tput setaf 3)CTRL C to cancel and edit the file preset.sh $(tput sgr0)"  
 echo "$(tput bold)$(tput setaf 7)If you are not sure what to do, answer N in here $(tput sgr0)"
 read -p "$(tput setaf 6)Would you like to Use Preset Settings (See note above)? (y/n): $(tput sgr0)" use_preset
@@ -174,8 +174,8 @@ execute_script() {
 printf "\n"
 ask_custom_option "-Type AUR helper" "paru or yay" aur_helper
 printf "\n"
-ask_yes_no "-Do you have any nvidia gpu in your system?" nvidia
-printf "\n"
+#ask_yes_no "-Do you have any nvidia gpu in your system?" nvidia
+#printf "\n"
 ask_yes_no "-Install GTK themes (required for Dark/Light function)?" gtk_themes
 printf "\n"
 ask_yes_no "-Do you want to configure Bluetooth?" bluetooth
@@ -220,9 +220,9 @@ execute_script "fonts.sh"
 # Install hyprland
 execute_script "hyprland.sh"
 
-if [ "$nvidia" == "Y" ]; then
+#if [ "$nvidia" == "Y" ]; then
     execute_script "nvidia.sh"
-fi
+#fi
 
 if [ "$gtk_themes" == "Y" ]; then
     execute_script "gtk_themes.sh"
@@ -278,12 +278,12 @@ if pacman -Q hyprland &> /dev/null || pacman -Q hyprland-git &> /dev/null; then
     read -rp "${CAT} Would you like to reboot now? (y/n): " HYP
 
     # Check if the user answered 'y' or 'Y'
-    if [[ "$HYP" =~ ^[Yy]$ ]]; then
-        if [[ "$nvidia" == "Y" ]]; then
-            echo "${NOTE} NVIDIA GPU detected. Rebooting the system..."
-        fi
-        systemctl reboot
-    fi
+#    if [[ "$HYP" =~ ^[Yy]$ ]]; then
+#        if [[ "$nvidia" == "Y" ]]; then
+#            echo "${NOTE} NVIDIA GPU detected. Rebooting the system..."
+#        fi
+#        systemctl reboot
+#    fi
 else
     # Print error message if neither package is installed
     printf "\n${WARN} Hyprland failed to install. Please check 00_CHECK-time_installed.log and other files Install-Logs/ directory...\n\n"
